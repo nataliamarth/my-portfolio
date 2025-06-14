@@ -1,0 +1,115 @@
+@use 'sass:color'             as color;
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins'    as mix;
+
+.VRAppOuter {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    color.adjust(vars.$primary-color, $lightness: 10%),
+    color.adjust(vars.$primary-color, $lightness: -5%)
+  );
+  color: white;
+  overflow: hidden;
+}
+
+.VRAppOuter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 8rem;
+  background: linear-gradient(
+    to bottom,
+    color.adjust(vars.$primary-color, $lightness: 10%),
+    color.adjust(vars.$primary-color, $lightness: -5%)
+  );
+}
+
+.VRAppOuter::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 6rem;
+  height: 3rem;
+  background: linear-gradient(
+    to left,
+    color.adjust(vars.$primary-color, $lightness: 10%),
+    color.adjust(vars.$primary-color, $lightness: -5%)
+  );
+}
+
+.VRAppInner {
+  @include mix.container();
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.VRAppInner h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #336D82;
+}
+
+.VRAppInner .description {
+  font-size: vars.$font-size-base;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+.VRAppInner .screenshots {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.VRAppInner .thumb {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+.thumb:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+}
+
+.enlarged {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+}

@@ -1,0 +1,26 @@
+@use './index' as *;
+@use './variables' as vars;
+@use './mixins'    as mix;
+@use 'sass:color' as color; 
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    color.adjust($primary-color, $lightness: 10%),
+    color.adjust($primary-color, $lightness: -5%)
+  );
+  background-attachment: fixed;
+  color: $text-color;
+  font-family: $font-stack;
+}
+
+
+
