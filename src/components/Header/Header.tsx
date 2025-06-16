@@ -1,16 +1,10 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
-const Header: React.FC = () => {
-  const location = useLocation();
-
-  const showNav = location.pathname !== '/';
-
-  return (
+const Header: React.FC = () => (
     <header className={styles.headerOuter}>
       <div className={styles.headerInner}>
-        {showNav && (
           <nav className={styles.nav}>
             <ul>
               <li><Link to="/">Home</Link></li>
@@ -19,11 +13,9 @@ const Header: React.FC = () => {
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </nav>
-        )}
       </div>
     </header>
   );
-};
 
 export default Header;
 

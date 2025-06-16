@@ -111,12 +111,6 @@
     background-color: vars.$secondary-color;
     transition: width 0.3s ease;
   }
-  &:hover {
-    color: vars.$secondary-color;
-  }
-  &:hover::after {
-    width: 100%;
-  }
 }
 
 @media (max-width: 768px) {
