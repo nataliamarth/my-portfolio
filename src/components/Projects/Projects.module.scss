@@ -115,14 +115,44 @@
 }
 
 @media (max-width: 768px) {
-  .projectsInner {
+  .contactOuter {
+   height: auto; 
+    padding-bottom: 1rem;
+  }
+  .contactOuter::before,
+  .contactOuter::after {
+    display: none;
+  }
+  .contactInner {
     flex-direction: column;
     align-items: center;
+    padding-left: 1rem;
+    gap: 0.5rem;
   }
-
   .leftColumn,
   .rightColumn {
     max-width: 100%;
     text-align: center;
+  }
+  .sectionHeading {
+    margin-top: 0;
+  }
+  .contactList {
+    margin-top: 0;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .intro {
+    font-size: 0.9rem;
+  }
+  .contactList {
+    gap: 0.5rem;
+  }
+  .contactLink {
+    font-size: 0.9rem;
   }
 }

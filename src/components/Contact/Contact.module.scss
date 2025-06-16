@@ -5,7 +5,7 @@
 .contactOuter {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100vh; 
   background: linear-gradient(
     135deg,
     color.adjust(vars.$primary-color, $lightness: 10%),
@@ -13,30 +13,30 @@
   );
   color: white;
   overflow: hidden;
-}
 
-.contactOuter::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 3rem; height: 8rem;
-  background: linear-gradient(
-    to bottom,
-    color.adjust(vars.$primary-color, $lightness: 10%),
-    color.adjust(vars.$primary-color, $lightness: -5%)
-  );
-}
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 3rem; height: 8rem;
+    background: linear-gradient(
+      to bottom,
+      color.adjust(vars.$primary-color, $lightness: 10%),
+      color.adjust(vars.$primary-color, $lightness: -5%)
+    );
+  }
 
-.contactOuter::after {
-  content: "";
-  position: absolute;
-  bottom: 0; right: 0;
-  width: 6rem; height: 3rem;
-  background: linear-gradient(
-    to left,
-    color.adjust(vars.$primary-color, $lightness: 10%),
-    color.adjust(vars.$primary-color, $lightness: -5%)
-  );
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 6rem; height: 3rem;
+    background: linear-gradient(
+      to left,
+      color.adjust(vars.$primary-color, $lightness: 30%),
+      vars.$primary-color
+    );
+  }
 }
 
 .contactInner {
@@ -66,6 +66,8 @@
   font-size: vars.$font-size-base;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  max-width: 800px;
 }
 
 .rightColumn {
@@ -73,7 +75,15 @@
   max-width: 30%;
 }
 
-.itemList {
+.sectionHeading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #336D82;
+  border-left: 3px solid color.adjust(vars.$secondary-color, $lightness: -10%);
+  padding-left: 0.5rem;
+}
+
+.contactList {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -82,33 +92,48 @@
   gap: 0.75rem;
 }
 
-.item {
+.contactLink {
+  display: inline-block;
   font-size: vars.$font-size-base;
+  color: white;
+  text-decoration: none;
   position: relative;
   padding-bottom: 0.25rem;
-  color: white;
   transition: color 0.3s ease;
 
   &::after {
     content: "";
     position: absolute;
     bottom: 0; left: 0;
-    width: 0; height: 2px;
+    width: 0%;
+    height: 2px;
     background-color: vars.$secondary-color;
     transition: width 0.3s ease;
   }
+
   &:hover {
     color: vars.$secondary-color;
   }
+
   &:hover::after {
     width: 100%;
   }
 }
 
 @media (max-width: 768px) {
+  .contactOuter {
+   height: auto; 
+    padding-bottom: 1rem;
+  }
+  .contactOuter::before,
+  .contactOuter::after {
+    display: none;
+  }
   .contactInner {
     flex-direction: column;
     align-items: center;
+    padding-left: 1rem;
+    gap: 0.5rem;
   }
   .leftColumn,
   .rightColumn {
@@ -116,6 +141,24 @@
     text-align: center;
   }
   .sectionHeading {
-    margin-top: 2rem;
+    margin-top: 0;
+  }
+  .contactList {
+    margin-top: 0;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .intro {
+    font-size: 0.9rem;
+  }
+  .contactList {
+    gap: 0.5rem;
+  }
+  .contactLink {
+    font-size: 0.9rem;
   }
 }

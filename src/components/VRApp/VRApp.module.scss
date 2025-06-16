@@ -87,7 +87,6 @@
   transform: scale(1.05);
 }
 
-/* Lightbox overlay */
 .lightbox {
   position: fixed;
   top: 0;
@@ -112,4 +111,39 @@
   max-width: 90%;
   max-height: 90%;
   border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .VRAppOuter {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 2rem; 
+    padding-left: 1rem;
+  }
+  .VRAppInner {
+    padding: 1rem 0;
+  }
+  .screenshots {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .VRAppOuter {
+    padding-bottom: 1rem;
+  }
+  .screenshots {
+    flex-wrap: nowrap;           
+    overflow-x: auto;            
+    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem;
+    padding: 0.5rem 0;        
+  }
+  .thumb {
+    flex: 0 0 auto;             
+    width: 120px;                
+    margin-right: 0.5rem;
+  }
 }
