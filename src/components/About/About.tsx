@@ -1,6 +1,14 @@
 import React from 'react';
 import styles from './About.module.scss';
 
+const skills = [
+  'React',
+  'HTML, CSS',
+  'TypeScript',
+  'Python',
+  'Swift',
+];
+
 const About: React.FC = () => {
   return (
     <section className={styles.aboutOuter}>
@@ -15,11 +23,11 @@ const About: React.FC = () => {
         <div className={styles.rightColumn}>
           <h3 className={styles.sectionHeading}>Skills</h3>
           <ul className={styles.skillList}>
-            <li className={styles.skillItem}>React</li>
-            <li className={styles.skillItem}>HTML, CSS</li>
-            <li className={styles.skillItem}>TypeScript</li>
-            <li className={styles.skillItem}>Python</li>
-            <li className={styles.skillItem}>Swift</li>
+            {skills.map((skill) => (
+              <li key={skill} className={styles.skillItem}>
+                {skill}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
