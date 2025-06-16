@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Projects.module.scss';
+import { Link } from 'react-router-dom';
 
 const projectData = [
   {
@@ -32,14 +33,20 @@ const Projects: React.FC = () => {
           <ul className={styles.itemList}>
             {projectData.map((proj) => (
               <li key={proj.name} className={styles.item}>
-                <a
-                  href={proj.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.itemLink}
-                >
-                  {proj.name}
-                </a>
+                {proj.url.startsWith('http') ? (
+                  <a
+                    href={proj.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.itemLink}
+                  >
+                    {proj.name}
+                  </a>
+                ) : (
+                  <Link to={proj.url} className={styles.itemLink}>
+                    {proj.name}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
