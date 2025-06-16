@@ -9,8 +9,7 @@ const Home: React.FC = () => {
         <div className={styles.leftColumn}>
           <h2 className={styles.title}>Natalia Marth</h2>
           <p className={styles.intro}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr.<br />
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+             Front-End Developer | Berlin
           </p>
         </div>
 
